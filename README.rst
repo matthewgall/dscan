@@ -12,6 +12,29 @@ Simply run:
 
    $ pip install dscan
 
+Command Reference
+-----------------
+
+::
+
+   usage: dscan.py [-h] [--input INPUT] [--output OUTPUT] [--rrtype RRTYPE]
+                   [--single] [--verbose]
+                   [domain]
+
+   positional arguments:
+   domain                domain name (single mode only)
+
+   optional arguments:
+   -h, --help            show this help message and exit
+   --input INPUT, -i INPUT
+                           path to list of domains (in plain text)
+   --output OUTPUT, -o OUTPUT
+                           path to output
+   --rrtype RRTYPE, -r RRTYPE
+                           rrtype to collate
+   --single, -s          single domain mode
+   --verbose, -v         increase output verbosity
+
 License
 -------
 
