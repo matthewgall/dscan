@@ -1,0 +1,8 @@
+.direnv/
+.vscode/
+.envrc
+
+# twine
+build/
+dist/
+dscan.egg-info/
