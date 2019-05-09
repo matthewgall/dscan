@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys, argparse, logging
+import os, sys, argparse, json
 import requests
 
 def single(domain, rrtype):
@@ -37,12 +37,6 @@ def main():
 	parser.add_argument("--verbose", "-v", help="increase output verbosity", action="store_true")
 	args = parser.parse_args()
 
-	if args.verbose:
-		logging.basicConfig(level=logging.DEBUG)
-	else:
-		logging.basicConfig(level=logging.INFO)
-	log = logging.getLogger(__name__)
-
 	if args.single:
 		print("\n".join(single(args.domain, args.rrtype)))
 	
@@ -52,7 +46,15 @@ def main():
 		with open(args.input, 'r') as f:
 			for d in f.readlines():
 				domains.append(d.strip())
+			f.close()
+
+		output = {}
+		for d in domains:
+			output[d] = single(d, args.rrtype)
 		
+		with open(args.output, 'w') as f:
+			f.write(json.dumps(output))
+			f.close()
 		
 if __name__ == '__main__':
 	main()
