@@ -17,7 +17,7 @@ def main():
 
 	# Modes
 	parser.add_argument("--single", "-s", help="single domain mode", action="store_true")
-	parser.add_argument("--provider", "-p", choices=["cloudflare", "google"], help="dns provider to use", default="cloudflare")
+	parser.add_argument("--provider", "-p", choices=["cloudflare", "google", "quad9"], help="dns provider to use", default="cloudflare")
 	
 	# Domain (in single mode)
 	parser.add_argument("domain", help="domain name (single mode only)", default="", nargs="?")

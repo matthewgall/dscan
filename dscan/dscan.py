@@ -9,12 +9,13 @@ class dscan:
 			'Accept': 'application/dns-json'
 		}
 
-		if not self.provider in ["cloudflare", "google"]:
+		if not self.provider in ["cloudflare", "google", "quad9"]:
 			self.provider = "cloudflare"
 		
 		providers = {
 			'cloudflare': "https://cloudflare-dns.com/dns-query",
-			'google': 'https://dns.google.com/resolve'
+			'google': 'https://dns.google.com/resolve',
+			'quad9': 'https://dns.quad9.net/dns-query'
 		}
 		self.base = providers[self.provider]
 
