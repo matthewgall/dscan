@@ -65,7 +65,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'dscan = dscan.dscan:main',
+            'dscan = dscan.cli:main',
         ],
     },
     install_requires=['requests']

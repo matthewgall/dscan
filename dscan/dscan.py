@@ -1,60 +1,35 @@
 #!/usr/bin/env python3
 
-import os, sys, argparse, json
 import requests
 
-def single(domain, rrtype):
-	if not rrtype.upper() in ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'TXT']:
-		return "You provided an invalid rrtype: {}".format(rrtype)
+class dscan:
+	def __init__(self, provider='cloudflare'):
+		self.provider = provider
+		self.headers = {
+			'Accept': 'application/dns-json'
+		}
 
-	try:
-		data = requests.get("https://dnsjson.com/{}/{}.json".format(domain, rrtype.upper()))
-		if data.status_code in [200]:
+		if not self.provider in ["cloudflare", "google"]:
+			self.provider = "cloudflare"
+		
+		if self.provider in ['cloudflare']:
+			self.base = "https://cloudflare-dns.com/dns-query"
+		if self.provider in ['google']:
+			self.base = "https://dns.google.com/resolve"
+
+	def single(self, domain, rrtype='AAAA'):
+		if not rrtype.upper() in ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'TXT']:
+			return "You provided an invalid rrtype: {}".format(rrtype)
+
+		data = requests.get(
+			"{}?name={}&type={}".format(self.base, domain, rrtype),
+			headers=self.headers
+		)
+		if data.status_code == 200:
 			data = data.json()
-			if data['success']:
-				return data['results']['records']
-	except:
+			if data['Status'] == 0:
+				results = []
+				for answer in data['Answer']:
+					results.append(answer['data'])
+				return results
 		return None
-
-def main():
-
-	parser = argparse.ArgumentParser()
-
-	# IO
-	parser.add_argument("--input", '-i', help="path to list of domains (in plain text)")
-	parser.add_argument("--output", '-o', help="path to output")
-
-	# Records
-	parser.add_argument("--rrtype", "-r", help="rrtype to collate", default="AAAA")
-
-	# Modes
-	parser.add_argument("--single", "-s", help="single domain mode", action="store_true")
-
-	# Domain (in single mode)
-	parser.add_argument("domain", help="domain name (single mode only)", default="", nargs="?")
-	
-	# Verbose mode
-	parser.add_argument("--verbose", "-v", help="increase output verbosity", action="store_true")
-	args = parser.parse_args()
-
-	if args.single:
-		print("\n".join(single(args.domain, args.rrtype)))
-	
-	if args.input and args.output:
-		domains = []
-
-		with open(args.input, 'r') as f:
-			for d in f.readlines():
-				domains.append(d.strip())
-			f.close()
-
-		output = {}
-		for d in domains:
-			output[d] = single(d, args.rrtype)
-		
-		with open(args.output, 'w') as f:
-			f.write(json.dumps(output))
-			f.close()
-		
-if __name__ == '__main__':
-	main()

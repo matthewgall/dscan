@@ -6,3 +6,6 @@
 build/
 dist/
 dscan.egg-info/
+
+# python
+__pycache__
