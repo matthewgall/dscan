@@ -2,7 +2,7 @@
 
 import os, sys, argparse, json
 import requests
-from dscan import dscan
+from .dscan import dscan
 
 def main():
 
