@@ -10,8 +10,8 @@ Simply run:
 
 ## Command Reference
 
-	usage: cli.py [-h] [--input INPUT] [--output OUTPUT] [--rrtype RRTYPE]
-				[--single] [--provider {cloudflare,google}] [--verbose]
+	usage: dscan [-h] [--input INPUT] [--output OUTPUT] [--rrtype RRTYPE]
+				[--single] [--provider {cloudflare,google,quad9}] [--verbose]
 				[domain]
 
 	positional arguments:
@@ -26,7 +26,7 @@ Simply run:
 	--rrtype RRTYPE, -r RRTYPE
 							rrtype to collate
 	--single, -s          single domain mode
-	--provider {cloudflare,google}, -p {cloudflare,google}
+	--provider {cloudflare,google,quad9}, -p {cloudflare,google,quad9}
 							dns provider to use
 	--verbose, -v         increase output verbosity
 
