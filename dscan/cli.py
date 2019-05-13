@@ -27,6 +27,9 @@ def main():
 	args = parser.parse_args()
 
 	if args.single:
+		if args.domain == "":
+			print("You must provide a domain name in --single mode (e.g --single cloudflare.com)")
+			exit()
 		scan = dscan(args.provider)
 		res = scan.single(args.domain, args.rrtype)
 		print("\n".join(res))
