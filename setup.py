@@ -68,6 +68,6 @@ setup(
             'dscan = dscan.cli:main',
         ],
     },
-    install_requires=['requests']
+    install_requires=['requests', 'dnslib']
 )
 
