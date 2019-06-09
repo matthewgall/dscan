@@ -28,6 +28,10 @@ class dscan:
 				'url': 'https://dns.google.com/resolve',
 				'method': 'json'
 			},
+			'powerdns': {
+				'url': 'https://doh.powerdns.org',
+				'method': 'wireformat'
+			},
 			'quad9': {
 				'url': 'https://dns.quad9.net/dns-query',
 				'method': 'wireformat'
