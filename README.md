@@ -11,8 +11,10 @@ Simply run:
 ## Command Reference
 
 	usage: dscan [-h] [--input INPUT] [--output OUTPUT] [--rrtype RRTYPE]
-				[--single] [--provider {cloudflare,google,quad9}] [--verbose]
-				[domain]
+              [--single]
+              [--provider {adguard,cleanbrowsing-family,cloudflare,google,quad9}]
+              [--verbose]
+              [domain]
 
 	positional arguments:
 	domain                domain name (single mode only)
@@ -26,9 +28,10 @@ Simply run:
 	--rrtype RRTYPE, -r RRTYPE
 							rrtype to collate
 	--single, -s          single domain mode
-	--provider {cloudflare,google,quad9}, -p {cloudflare,google,quad9}
+	--provider {adguard,cleanbrowsing-family,cloudflare,google,quad9}, -p {adguard,cleanbrowsing-family,cloudflare,google,quad9}
 							dns provider to use
 	--verbose, -v         increase output verbosity
+
 
 ## License
 
