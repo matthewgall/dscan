@@ -40,5 +40,6 @@ publish:
   dependencies:
     - build
   only:
-    changes:
-      - Makefile
+    - tags
+  except:
+    - branches
