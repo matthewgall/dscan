@@ -4,7 +4,17 @@ import os, sys, argparse, json
 import requests
 from .dscan import dscan
 
-PROVIDERS = ["adguard", "cleanbrowsing-family", "cloudflare", "commons.host", "google", "powerdns", "quad9"]
+PROVIDERS = [
+	"adguard",
+	"cleanbrowsing-family",
+	"cloudflare",
+	"commons.host",
+	"dnswarden",
+	"dnswarden-adblock",
+	"google",
+	"powerdns",
+	"quad9"
+]
 
 def main():
 
