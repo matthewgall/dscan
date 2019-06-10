@@ -28,6 +28,14 @@ class dscan:
 				'url': 'https://commons.host',
 				'method': 'wireformat'
 			},
+			'dnswarden': {
+				'url': 'https://doh.dnswarden.com/uncensored',
+				'method': 'wireformat'
+			},
+			'dnswarden-adblock': {
+				'url': 'https://doh.dnswarden.com/adblock',
+				'method': 'wireformat'
+			},
 			'google': {
 				'url': 'https://dns.google.com/resolve',
 				'method': 'json'
