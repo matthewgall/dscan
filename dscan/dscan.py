@@ -24,7 +24,7 @@ class dscan:
 				'url': 'https://cloudflare-dns.com/dns-query',
 				'method': 'wireformat'
 			},
-			'commonshost': {
+			'commons.host': {
 				'url': 'https://commons.host',
 				'method': 'wireformat'
 			},
