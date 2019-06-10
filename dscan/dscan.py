@@ -16,6 +16,10 @@ class dscan:
 				'url': 'https://dns.adguard.com/dns-query',
 				'method': 'wireformat'
 			},
+			"appliedprivacy": {
+				'url': 'https://doh.appliedprivacy.net/query',
+				'method': 'wireformat'
+			},
 			'cleanbrowsing-family': {
 				'url': 'https://doh.cleanbrowsing.org/doh/family-filter',
 				'method': 'wireformat'

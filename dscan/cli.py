@@ -6,6 +6,7 @@ from .dscan import dscan
 
 PROVIDERS = [
 	"adguard",
+	"appliedprivacy",
 	"cleanbrowsing-family",
 	"cloudflare",
 	"commons.host",
