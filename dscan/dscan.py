@@ -7,9 +7,6 @@ from base64 import urlsafe_b64encode
 class dscan:
 	def __init__(self, provider='cloudflare'):
 		self.provider = provider
-
-		if not self.provider in ["adguard", "cloudflare", "google", "quad9"]:
-			self.provider = "cloudflare"
 		
 		providers = {
 			'adguard': {
@@ -53,6 +50,13 @@ class dscan:
 				'method': 'wireformat'
 			}
 		}
+
+		try:
+			self.provider_meta = providers[self.provider]
+		except KeyError:
+			self.provider_meta = providers['cloudflare']
+			self.provider = 'cloudflare'
+		
 		self.base = providers[self.provider]
 
 		if self.base['method'] in ['json']:
