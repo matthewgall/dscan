@@ -16,12 +16,10 @@ variables:
 cache:
   paths:
     - .cache/pip
-    - venv/
 
 before_script:
   - python -V
   - pip install poetry
-  - poetry config settings.virtualenvs.create=False
   - poetry install
 
 build:
