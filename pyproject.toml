@@ -17,7 +17,7 @@ homepage = "https://codedin.wales/matthew/dscan"
 keywords = ['dns', 'scanning', 'osint', 'dscan']
 
 [tool.poetry.dependencies]
-python = "^2 || <3.8"  # Compatible python versions must be declared here
+python = "^2.7 || ^3"  # Compatible python versions must be declared here
 toml = "^0.9"
 requests = "^2.22"
 dnslib = "^0.9.10"
