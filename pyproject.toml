@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dscan"
-version = "0.1.5"
+version = "0.1.6"
 description = "dscan makes scanning a list of domains for DNS records easy!"
 
 license = "MIT"
