@@ -7,8 +7,8 @@ build-docs:
 
 .PHONY: build
 build:
-	python setup.py bdist_wheel --universal
+	poetry build
 
 .PHONY: upload-pypi
 upload-pypi:
-	twine upload dist/${NAME}-${VERSION}-py2.py3-none-any.whl
+	poetry publish -u $TWINE_USERNAME -p $TWINE_PASSWORD
