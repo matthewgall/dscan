@@ -20,23 +20,23 @@ cache:
 
 before_script:
   - python -V
-  - pip install virtualenv twine
-  - virtualenv venv
-  - source venv/bin/activate
+  - pip install poetry
+  - poetry config settings.virtualenvs.create=False
+  - poetry install
 
 build:
   script:
-  - python setup.py bdist_wheel --universal
+  - poetry build
   # run the command here
   stage: build
   artifacts:
     paths:
-    - dist/*.whl
+    - dist/*
   
 publish:
   stage: deploy
   script:
-  - twine upload -u $TWINE_USERNAME -p $TWINE_PASSWORD dist/*.whl
+  - poetry publish -u $TWINE_USERNAME -p $TWINE_PASSWORD
   dependencies:
     - build
   only:
