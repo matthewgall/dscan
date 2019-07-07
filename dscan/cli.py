@@ -13,6 +13,7 @@ PROVIDERS = [
 	"dnswarden",
 	"dnswarden-adblock",
 	"google",
+	"mydns-adblock",
 	"powerdns",
 	"quad9"
 ]

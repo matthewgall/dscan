@@ -41,6 +41,10 @@ class dscan:
 				'url': 'https://dns.google.com/resolve',
 				'method': 'json'
 			},
+			'mydns-adblock': {
+				'url': 'https://adblock.doh.mydns.network/dns-query',
+				'method': 'wireformat'
+			},
 			'powerdns': {
 				'url': 'https://doh.powerdns.org',
 				'method': 'wireformat'
