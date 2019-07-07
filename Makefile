@@ -1,5 +1,5 @@
 NAME := dscan
-VERSION := 0.1.6
+VERSION := 0.1.7
 
 .PHONY: build-docs
 build-docs:
